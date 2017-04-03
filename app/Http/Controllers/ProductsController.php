@@ -18,42 +18,24 @@ class ProductsController extends Controller
         else
             $products = Product::all();
 
-        return view('products.list',
-            [
-                'products' => $products
-            ]
-        );
+        return view('products.list', ['products' => $products]);
     }
 
     public function view ($id) {
         $product = Product::find($id);
-
-        return view('products.view',
-            [
-                'product' => $product
-            ]
-        );
+        return view('products.view', ['product' => $product]);
     }
 
     public function add () {
         $categories = Category::all();
-        return view('products.add',
-            [
-                'categories' => $categories
-            ]
-        );
+        return view('products.add', ['categories' => $categories]);
     }
 
     public function edit ($id) {
         $product = Product::find($id);
         $categories = Category::all();
 
-        return view('products.edit',
-            [
-                'product' => $product,
-                'categories' => $categories
-            ]
-        );
+        return view('products.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     public function save (Request $request) {
