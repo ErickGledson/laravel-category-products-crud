@@ -12,9 +12,9 @@ class ProductsController extends Controller
 {
     public function list (Request $request) {
         if ($request->path() == 'products/br')
-            $products = Product::where('marketed', 1)->get();
+            $products = Product::whereIn('marketed', [1, 3])->get();
         else if ($request->path() == 'products/us')
-            $products = Product::where('marketed', 2)->get();
+            $products = Product::whereIn('marketed', [2, 3])->get();
         else
             $products = Product::all();
 
