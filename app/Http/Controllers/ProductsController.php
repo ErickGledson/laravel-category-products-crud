@@ -10,7 +10,7 @@ use Image;
 
 class ProductsController extends Controller
 {
-    public function list (Request $request) {
+    public function listProduct (Request $request) {
         if ($request->path() == 'products/br')
             $products = Product::whereIn('marketed', [1, 3])->get();
         else if ($request->path() == 'products/us')

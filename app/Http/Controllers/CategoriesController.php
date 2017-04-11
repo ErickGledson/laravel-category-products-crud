@@ -11,7 +11,7 @@ use questa\Product;
 class CategoriesController extends Controller
 {
 
-    public function list () {
+    public function listCategory () {
         $categorias = Category::all();
 
         return view('categories.list',
